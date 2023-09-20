@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "gen-models": {
+      "description": "Generate typescript models from C# POCOs/DTOs",
+      "factory": "./gen-models/index#genModels",
+      "schema": "./gen-models/schema.json"
+    }
+  }
+}

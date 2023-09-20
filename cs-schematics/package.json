@@ -1,0 +1,45 @@
+{
+    "name": "cs-schematics",
+    "version": "0.0.337",
+    "description": "A blank schematics",
+    "scripts": {
+        "get-usage-help": "schematics .",
+        "build": "npm --no-git-tag-version version patch -m 'Upgrade' && tsc -p tsconfig.json",
+        "release": "npm run build",
+        "prerelease": "npm unlink cs-schematics && printf \"${RED}NPM Global - Uninstalled\\n\"",
+        "postrelease": "npm link && echo \"NPM Global - Installed\"",
+        "start:createTestFile": "npm run build && schematics .:createTestFile",
+        "build:watch": "tsc -p tsconfig.json --watch",
+        "____utils____": "",
+        "check-env": "node -e 'console.log(process.env)' | grep npm",
+        "whoami": "whoami",
+        "greeting": "echo \"\\033[32mHello World\"",
+        "greeting2": "export COL=\"\\033[32m\" && echo \"${COL}Hello World\"",
+        "____end____": ""
+    },
+    "keywords": [
+        "schematics"
+    ],
+    "author": "",
+    "license": "MIT",
+    "schematics": "./src/collection.json",
+    "dependencies": {
+        "@angular-devkit/core": "^12.0.2",
+        "@angular-devkit/schematics": "^12.0.2",
+        "@fluffy-spoon/csharp-to-typescript-generator": "^1.233.0",
+        "@types/underscore": "^1.10.22",
+        "change-case": "^4.1.2",
+        "typescript": "~3.9.7",
+        "underscore": "^1.11.0"
+    },
+    "devDependencies": {
+        "@angular-devkit/schematics-cli": "^12.2.4",
+        "@schematics/angular": "^12.0.2",
+        "@schematics/schematics": "^0.1102.12",
+        "@types/jasmine": "~3.5.0",
+        "@types/node": "^12.11.1",
+        "@types/shelljs": "^0.8.8",
+        "jasmine": "^3.5.0",
+        "shelljs": "^0.8.4"
+    }
+}

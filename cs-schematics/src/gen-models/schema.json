@@ -1,0 +1,9 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "$id": "GenModelOptions",
+    "title": "Test",
+    "type": "object",
+    "description": "dg testing..",
+    "properties": {},
+    "required": []
+}

@@ -1,0 +1,35 @@
+import { CSharpClass, CSharpFile, CSharpNamespace } from "@fluffy-spoon/csharp-to-typescript-generator";
+import { CSharpClassSourceInfo } from "./CSharpClassSourceInfo";
+import { NamespaceInfo } from "./NamespaceInfo";
+import { CSharpClassMemberInfo } from "./CSharpClassMemberInfo";
+export declare type TargetType = 'class' | 'interface';
+export declare class CSharpClassInfo {
+    classes: CSharpClassSourceInfo[];
+    namespace: string;
+    namespaceInfo: NamespaceInfo;
+    members: CSharpClassMemberInfo[];
+    output: boolean;
+    includeInOutput(include: boolean): void;
+    static Create(clsSource: CSharpClassSourceInfo, nsInfo: NamespaceInfo): CSharpClassInfo;
+    addPartial(cls: CSharpClassSourceInfo): void;
+    generate(): string;
+    getClassName(target: TargetType): string;
+    getFullClassName(): string;
+    isGeneric(): boolean;
+    getFieldMaskName(): string;
+    extractProps(): void;
+    getProps(genericParams: string[]): CSharpClassMemberInfo[];
+    getGenericParameters(baseInfo: CSharpClassInfo): string[];
+    getBaseProps(): CSharpClassMemberInfo[];
+    private extractMembers;
+    customCsToTypescript(clsInfo: CSharpClassSourceInfo, level: number): string;
+    flufflyConvert(clsInfo: CSharpClassSourceInfo): string;
+    genTsClassCode(target: TargetType): string;
+    genFnFromRawCode(): string;
+    genFnToRawCode(): string;
+    genTypescriptFieldNameLookup(): string;
+    static getNamespace(cs: CSharpClass): string;
+    static getCSharpFile(cs: CSharpClass): CSharpFile;
+    static getNamespaceParts(cs: CSharpClass | CSharpNamespace | CSharpFile): string[];
+    getTypeFullname(typeName: string): string | undefined;
+}

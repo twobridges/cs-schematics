@@ -1,0 +1,16 @@
+{
+    "folders": [
+        {
+            "path": "cs-schematics"
+        },
+        {
+            "path": "cs-demo-api"
+        },
+        {
+            "path": "ng-demo"
+        },
+    ],
+    "settings": {
+        "omnisharp.useGlobalMono": "never"
+    }
+}
