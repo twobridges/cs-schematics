@@ -55,6 +55,8 @@ export let fnConvertPrimitiveTypeName = (typName: string, genericMap?: GenericMa
 
 export var primitiveTypeLookup: { [csType: string]: string } = {
     'DateTime': 'string',
+    'DateOnly': `IDateOnly`,
+    'TimeOnly': `ITimeOnly`,
     'string': 'string',
     'Guid': 'string',
     'decimal': 'number',
@@ -252,8 +254,8 @@ export class CSharpClassMemberInfo {
     }
     private genTsClassFieldCode(clsInfo: CSharpClassInfo) {
         const name = this.getMemberName();
-        if (this.name == 'InvoiceStatus') {
-            debugger;
+        if (this.name == 'TimeOfDay' || this.name == 'DueDate' || this.name == 'InvoiceStatus') {
+            console.log(`member: ${name}`);
         }
         let code = ''
         if (this.excludeField(name)) {

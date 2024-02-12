@@ -30,10 +30,11 @@ let fnConvertTypeGenericCollectionInterface = (member) => {
 let fnCollectionInitialiser = (member) => {
     return result_model_1.Result.CreateSuccess(`[]`);
 };
-exports.fnConvertPrimitive = (member, genericMap) => {
+let fnConvertPrimitive = (member, genericMap) => {
     return exports.fnConvertPrimitiveTypeName(member.type.name, genericMap);
 };
-exports.fnConvertPrimitiveTypeName = (typName, genericMap) => {
+exports.fnConvertPrimitive = fnConvertPrimitive;
+let fnConvertPrimitiveTypeName = (typName, genericMap) => {
     let lookup = (genericMap && exports.primitiveTypeLookup[genericMap[typName]]);
     lookup = lookup || exports.primitiveTypeLookup[typName];
     if (lookup) {
@@ -44,8 +45,11 @@ exports.fnConvertPrimitiveTypeName = (typName, genericMap) => {
         return result_model_1.Result.CreateFailure('Missing typeLookup', '');
     }
 };
+exports.fnConvertPrimitiveTypeName = fnConvertPrimitiveTypeName;
 exports.primitiveTypeLookup = {
     'DateTime': 'string',
+    'DateOnly': `IDateOnly`,
+    'TimeOnly': `ITimeOnly`,
     'string': 'string',
     'Guid': 'string',
     'decimal': 'number',
@@ -246,8 +250,8 @@ class CSharpClassMemberInfo {
     }
     genTsClassFieldCode(clsInfo) {
         const name = this.getMemberName();
-        if (this.name == 'InvoiceStatus') {
-            debugger;
+        if (this.name == 'TimeOfDay' || this.name == 'DueDate' || this.name == 'InvoiceStatus') {
+            console.log(`member: ${name}`);
         }
         let code = '';
         if (this.excludeField(name)) {

@@ -22,7 +22,22 @@ export class TsOutputFile {
     genContent(options: GenModelOptions) {
         let content = [
             // header usings
-            `import * as _ from 'underscore';`,
+            `import * as _ from 'underscore';
+export interface IDateOnly {
+    year: number,
+    month: number,
+    day: number,
+    dayOfWeek: number,
+    dayOfYear: number,
+    dayNumber: number
+};
+export interface ITimeOnly {
+    hour: number,
+    minute: number,
+    second: number,
+    millisecond: number,
+    ticks: number
+};`,
             ``,
             `var isSoftDeleted = (e: any) => !!(e && (e.deletedUtc || e.deletedBy));`,
             ``,

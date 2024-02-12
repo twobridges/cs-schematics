@@ -23,6 +23,8 @@ namespace cs_demo_api.Areas.Invoicing.Domain.Entities
         protected Invoice() { }
 
         public DateTime InvoiceDate { get; set; }
+        public DateOnly? DueDate { get; set; }
+        public TimeOnly? TimeOfDay { get; set; }
         public InvoiceStatus InvoiceStatus { get; set; }
         public int Num1 { get; set; }
         public int? Num2 { get; set; }

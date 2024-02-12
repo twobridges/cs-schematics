@@ -33,6 +33,8 @@ const local_cache_1 = require("./local-cache");
 //     context: SchematicContext,
 //   ) => Tree | Observable<Tree> | Rule | Promise<void | Rule> | void;
 function genModels(options) {
+    console.info('options:');
+    console.dir(options);
     return (tree, _context) => __awaiter(this, void 0, void 0, function* () {
         // 1. Get Options
         let optionsResult = yield getOptions(tree, options);

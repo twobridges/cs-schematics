@@ -80,29 +80,7 @@ class CSharpClassInfo {
     getBaseProps() {
         var _a;
         let baseProps = [];
-        // if (this.getClassName('class') == 'McsOrder') {
-        //     debugger;
-        // } else if (this.getClassName('class') == 'McsOrderBatch') {
-        //     debugger;
-        // } else if (this.getClassName('class') == 'AggregateRoot') {
-        //     debugger;
-        // } else if (this.getClassName('class') == 'Invoice') {
-        //     debugger;
-        // } else if (this.getClassName('class') == 'CommentsByHourRequest') {
-        //     debugger;
-        // }
         for (const clsSourceInfo of this.classes) {
-            // if (this.getClassName('class') == 'McsOrder') {
-            //     debugger;
-            // } else if (this.getClassName('class') == 'McsOrderBatch') {
-            //     debugger;
-            // } else if (this.getClassName('class') == 'AggregateRoot') {
-            //     debugger;
-            // } else if (this.getClassName('class') == 'Invoice') {
-            //     debugger;
-            // } else if (this.getClassName('class') == 'CommentsByHourRequest') {
-            //     debugger;
-            // }
             for (const inheritsFrom of (_a = clsSourceInfo.cls) === null || _a === void 0 ? void 0 : _a.inheritsFrom) {
                 let typFullname = clsSourceInfo.getTypeFullname(inheritsFrom);
                 if (typFullname) {
@@ -111,17 +89,6 @@ class CSharpClassInfo {
                         for (const clsInfo of baseInfo.classes) {
                             // handle generic type arguments here
                             let genericParams = inheritsFrom.genericParameters.map(e => e.name);
-                            // if (this.getClassName('class') == 'McsOrder') {
-                            //     debugger;
-                            // } else if (this.getClassName('class') == 'McsOrderBatch') {
-                            //     debugger;
-                            // } else if (this.getClassName('class') == 'AggregateRoot') {
-                            //     debugger;
-                            // } else if (this.getClassName('class') == 'Invoice') {
-                            //     debugger;
-                            // } else if (this.getClassName('class') == 'CommentsByHourRequest') {
-                            //     debugger;
-                            // }
                             let nextProps = baseInfo.getProps(genericParams);
                             baseProps = [
                                 ...baseProps,
