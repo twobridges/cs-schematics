@@ -93,6 +93,11 @@ class CSharpClassMemberInfo {
         // console.log(`member: ${name}`);
     }
     getMemberName() {
+        if (this.name == 'ID') {
+            console.log(`member: '${this.name}' -> '${strings_1.camelize(this.name)}'`);
+            console.log(`member: '${this.name}' -> '${strings_1.camelize(this.name)}'`);
+            return 'id';
+        }
         return `${strings_1.camelize(this.name)}`;
     }
     genMemberType(clsInfo, target) {
