@@ -92,8 +92,8 @@ export var initialiserConversion: { [csType: string]: fnConverter } = {
 export class CSharpClassMemberInfo {
     getMemberName() {
         if (this.name == 'ID') {
-            console.log(`member: '${this.name}' -> '${camelize(this.name)}'`);
             // ID is returned as 'id' in the API, but is stored as 'ID' in the database
+            // console.log(`member: '${this.name}' -> '${camelize(this.name)}'`);
             return 'id';
         }
         return `${camelize(this.name)}`;
