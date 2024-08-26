@@ -93,10 +93,14 @@ class CSharpClassMemberInfo {
         // console.log(`member: ${name}`);
     }
     getMemberName() {
-        if (this.name == 'ID') {
-            console.log(`member: '${this.name}' -> '${strings_1.camelize(this.name)}'`);
-            console.log(`member: '${this.name}' -> '${strings_1.camelize(this.name)}'`);
-            return 'id';
+        if (this.name == this.name.toUpperCase()) {
+            // camelize does not handle string in all-caps.  Need to convert these to all-lowercase.
+            // eg. during dotnet json serialization:
+            // * ID is returned as 'id'
+            // * TESTID is returned as 'testid'
+            console.log(`member: '${this.name}' -> '${this.name.toLowerCase()}'`);
+            return this.name.toLowerCase();
+            // return `${camelize(this.name)}`;
         }
         return `${strings_1.camelize(this.name)}`;
     }

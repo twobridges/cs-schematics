@@ -14,6 +14,7 @@ namespace cs_demo_api.Areas.Invoicing.Domain.Entities
 
         // this should convert to model property 'id', not 'iD'
         public int ID { get; set; }
+        public int RELATEDID { get; set; }
         public string StringValue { get; set; }
     }
 }

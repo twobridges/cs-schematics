@@ -1,6 +1,6 @@
 {
     "name": "cs-schematics",
-    "version": "0.0.358",
+    "version": "0.0.360",
     "description": "A blank schematics",
     "scripts": {
         "get-usage-help": "schematics .",
