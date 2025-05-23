@@ -11,6 +11,16 @@
         },
     ],
     "settings": {
-        "omnisharp.useGlobalMono": "never"
+        "omnisharp.useGlobalMono": "never",
+        "files.exclude": {
+            "**/*.js": true,
+            "**/*.js.map": true,
+            "**/*.d.ts": true,
+            "**/.git": true,
+            "**/.svn": true,
+            "**/.hg": true,
+            "**/.DS_Store": true,
+            "**/Thumbs.db": true
+        }
     }
 }
